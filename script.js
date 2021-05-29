@@ -1,4 +1,3 @@
-const count = 10;
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
 
@@ -6,6 +5,7 @@ let ready = false;
 let imagesLoaded = 0;
 let totalImages = 0;
 let photoArray = [];
+let count = 5;
 
 // Set all attributes together
 function setAttributes(element, attributes) {
@@ -20,6 +20,7 @@ function imageLoaded() {
   if (imagesLoaded === totalImages) {
     ready = true;
     loader.hidden = true;
+    count = 20;
   }
 }
 
@@ -27,7 +28,7 @@ function imageLoaded() {
 function generatePhotos() {
   totalImages += count;
   for (var i = 0; i < count; i++) {
-    const apiUrl = `https://picsum.photos/800/600?random=${i}`;
+    const apiUrl = `https://picsum.photos/1920/1080?random=${i}`;
     const item = document.createElement("a");
 
     setAttributes(item, {
